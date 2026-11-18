@@ -321,14 +321,14 @@ body {
 }
 
 /* ==========================================
-   需求 4：滑鼠點擊輸入框會出現外框突顯效果 (Focus State)
+   滑鼠點擊輸入框會出現外框突顯效果 (Focus State)
    ========================================== */
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
   /* 移除瀏覽器預設的藍色外框 */
   outline: none; 
-  /* 將邊框顏色變更为品牌主色（咖啡棕） */
+  /* 將邊框顏色變更為品牌主色（咖啡棕） */
   border-color: #8c6239; 
   /* 加上柔和溫暖的半透明光暈外框突顯效果 */
   box-shadow: 0 0 0 3px rgba(140, 98, 57, 0.18); 
@@ -364,74 +364,109 @@ body {
 }
 
 /* ==========================================
-   7. 頁尾 (Footer) 樣式設計 (含手機版自動垂直置中)
+   7. 頁尾 (Footer) 質感咖啡廳美學設計
    ========================================== */
 .site-footer {
-  /* 設定頁尾深色背景（深咖啡色） */
-  background-color: #3e3228;
-  /* 設定頁尾文字色彩為淺米色 */
+  background-color: #2c221e; /* 更沉穩內斂的深焦糖咖啡色 */
   color: #fcf9f5;
-  padding: 40px 30px 24px;
+  padding: 60px 40px 30px;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
 }
 
-.footer-content {
+.footer-container {
   display: flex;
-  /* 預設桌機版：左右兩側分散對齊 */
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 20px;
-  /* 底部加上分隔線 */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 24px;
+  gap: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 40px;
 }
 
-.footer-brand {
+.footer-col {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 16px;
+  flex: 1 1 220px;
+}
+
+.footer-brand-col {
+  max-width: 320px;
 }
 
 .footer-logo-text {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 600;
   font-family: "Georgia", "Times New Roman", serif;
   letter-spacing: 0.05em;
+  color: #fcf9f5;
 }
 
 .footer-tagline {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #d4c5b9;
+  line-height: 1.6;
 }
 
-.footer-nav {
+.footer-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.footer-menu {
+  list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  /* 設定導覽連結之間的間距 */
-  gap: 20px;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .footer-link {
   color: #d4c5b9;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, padding-left 0.2s ease;
 }
 
 .footer-link:hover {
   color: #ffffff;
+  padding-left: 4px; /* 懸停時微幅向右位移的小巧思 */
 }
 
-/* 外部連結專屬微調（例如 GitHub / LinkedIn） */
-.external-link {
-  /* 加上微微的底線提示這是一個外部跳轉連結 */
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-color: rgba(212, 197, 185, 0.4);
+/* 社群圖標群組設計 */
+.footer-social-icons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.social-icon-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fcf9f5;
+  transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.social-svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* 社群圖標懸停特效 */
+.social-icon-link:hover {
+  background-color: #8c6239; /* 懸停時轉為品牌主色 */
+  color: #ffffff;
+  transform: translateY(-4px); /* 懸停向上浮動 */
 }
 
 .footer-bottom {
@@ -441,26 +476,44 @@ body {
 }
 
 /* ==========================================
-   需求 3：手機版 RWD 響應式調整 (Footer 改為上下垂直置中)
+   手機版 RWD 響應式調整 (Footer 自動改為上下垂直置中)
    ========================================== */
 @media (max-width: 768px) {
-  .footer-content {
-    /* 當螢幕寬度小於 768px（手機版）時，將排版方向改為垂直上下排列 */
+  .site-footer {
+    padding: 40px 20px 24px;
+  }
+
+  .footer-container {
+    /* 手機版改為單行垂直排列並全部置中對齊 */
     flex-direction: column;
-    /* 將所有子元素改為置中對齊 */
     align-items: center;
     text-align: center;
+    gap: 30px;
   }
   
-  .footer-brand {
-    /* 手機版品牌文字區塊置中 */
+  .footer-brand-col {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .footer-links-col {
+    align-items: center;
+  }
+
+  .footer-menu {
     align-items: center;
   }
   
-  .footer-nav {
-    /* 手機版導覽連結改為置中排列並縮小間距 */
+  .footer-link:hover {
+    padding-left: 0; /* 手機版取消位移以免跑版 */
+  }
+
+  .footer-social-col {
+    align-items: center;
+  }
+
+  .footer-social-icons {
     justify-content: center;
-    gap: 14px;
   }
   
   .contact-section {

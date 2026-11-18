@@ -96,7 +96,7 @@
     </section>
 
     <!-- ==========================================
-         6. 「聯絡我們」表單區塊 (整合 Netlify 與下拉選單)
+         6. 「聯絡我們」表單區塊 (整合 Netlify 屬性與 action="/")
          ========================================== -->
     <section class="contact-section">
       <!-- 表單標題與副標題群組容器 -->
@@ -107,8 +107,8 @@
         <p class="section-subtitle">有任何合作提案或想對我們說的話嗎？歡迎隨時與我們聯繫。</p>
       </div>
 
-      <!-- 聯絡表單本體：設定 name 與 netlify 屬性以支援 Netlify 後端表單接收 -->
-      <form class="contact-form" name="contact"  method="POST" action="/" netlify>
+      <!-- 聯絡表單本體：設定 action="/" 與 netlify 屬性以正確導向並接收表單 -->
+      <form class="contact-form" name="contact" method="POST" action="/" netlify>
         
         <!-- 表單欄位 1：您的姓名 (Name) -->
         <div class="form-group">
@@ -159,41 +159,57 @@
     </section>
 
     <!-- ==========================================
-         7. 頁尾區塊 (Footer 包含版權、內部與外部導覽連結)
+         7. 頁尾區塊 (Footer 咖啡廳質感升級版)
          ========================================== -->
     <footer class="site-footer">
-      <!-- 頁尾主要內容上下左右配置區塊 -->
-      <div class="footer-content">
-        <!-- 品牌簡介短語區塊 -->
-        <div class="footer-brand">
-          <!-- 頁尾品牌名稱 -->
+      <!-- 頁尾主要內容三欄式排版容器 -->
+      <div class="footer-container">
+        
+        <!-- 第一欄：品牌故事與理念 -->
+        <div class="footer-col footer-brand-col">
           <span class="footer-logo-text">Atelier Café</span>
-          <!-- 頁尾品牌標語 -->
-          <p class="footer-tagline">為您煮一杯充滿溫度的手沖時光。</p>
+          <p class="footer-tagline">為您煮一杯充滿溫度的手沖時光，結合職人手作甜點與靜謐美學空間。</p>
         </div>
 
-        <!-- 導覽連結與外部社交連結群組 -->
-        <nav class="footer-nav">
-          <!-- 內部導覽連結：首頁 -->
-          <a href="#" class="footer-link">首頁</a>
-          <!-- 內部導覽連結：精選豆單 -->
-          <a href="#" class="footer-link">精選豆單</a>
-          <!-- 內部導覽連結：手作甜點 -->
-          <a href="#" class="footer-link">手作甜點</a>
-          <!-- 內部導覽連結：空間預約 -->
-          <a href="#" class="footer-link">空間預約</a>
-          <!-- 內部導覽連結：聯絡我們 -->
-          <a href="#" class="footer-link">聯絡我們</a>
-          <!-- 外部連結 1：個人 GitHub 專業技術作品集 -->
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link external-link">GitHub ↗</a>
-          <!-- 外部連結 2：個人 LinkedIn 職場社交檔案 -->
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link external-link">LinkedIn ↗</a>
-        </nav>
+        <!-- 第二欄：網站快速導覽連結 -->
+        <div class="footer-col footer-links-col">
+          <h4 class="footer-heading">快速導覽</h4>
+          <ul class="footer-menu">
+            <li><a href="#" class="footer-link">首頁</a></li>
+            <li><a href="#" class="footer-link">精選豆單</a></li>
+            <li><a href="#" class="footer-link">手作甜點</a></li>
+            <li><a href="#" class="footer-link">空間預約</a></li>
+            <li><a href="#" class="footer-link">聯絡我們</a></li>
+          </ul>
+        </div>
+
+        <!-- 第三欄：社群與外部連結 (GitHub, LinkedIn, 微信, 小紅書) -->
+        <div class="footer-col footer-social-col">
+          <h4 class="footer-heading">關注我們</h4>
+          <div class="footer-social-icons">
+            <!-- GitHub 外部連結與圖標 -->
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="GitHub">
+              <svg class="social-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <!-- LinkedIn 外部連結與圖標 -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn">
+              <svg class="social-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <!-- 微信 (WeChat) 圖標 -->
+            <a href="#" class="social-icon-link" aria-label="WeChat">
+              <svg class="social-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M8.5 2C4.36 2 1 4.91 1 8.5c0 2.11 1.13 3.99 2.89 5.22L3 17.5l3.52-1.53c.62.17 1.28.28 1.98.28.2 0 .4-.01.6-.03-.41-1.02-.64-2.13-.64-3.29 0-4.97 4.48-9 10-9 .55 0 1.09.05 1.62.14C19.04 4.14 14.15 2 8.5 2zM6 7.5a1 1 0 110 2 1 1 0 010-2zm5 0a1 1 0 110 2 1 1 0 010-2zm7.5 5.5c-4.14 0-7.5 2.69-7.5 6 0 1.48.65 2.83 1.73 3.87L11 23l2.42-1.05c.57.14 1.17.22 1.81.22 4.14 0 7.5-2.69 7.5-6s-3.36-6-7.5-6zm-4.25 4.75a.75.75 0 100 1.5.75.75 0 000-1.5zm4.5 0a.75.75 0 100 1.5.75.75 0 000-1.5z"/></svg>
+            </a>
+            <!-- 小紅書 (Xiaohongshu) 圖標 -->
+            <a href="#" class="social-icon-link" aria-label="Xiaohongshu">
+              <svg class="social-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.2 14.5h-2.4v-3h2.4v3zm0-4.5h-2.4V8.5h2.4v3.5z"/></svg>
+            </a>
+          </div>
+        </div>
+
       </div>
 
       <!-- 頁尾最下方的版權宣告區塊 -->
       <div class="footer-bottom">
-        <!-- 版權宣告文字與年份 -->
         <p>© 2026 Atelier Café by Alina. All rights reserved.</p>
       </div>
     </footer>
