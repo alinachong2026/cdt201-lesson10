@@ -1,0 +1,469 @@
+/* ==========================================
+   1. 全域基本樣式重置與字型設定
+   ========================================== */
+* {
+  /* 設定盒模型計算方式包含邊框與內距，確保排版穩定 */
+  box-sizing: border-box;
+  /* 清除所有元素的預設外距 */
+  margin: 0;
+  /* 清除所有元素的預設內距 */
+  padding: 0;
+}
+
+body {
+  /* 設定全站基礎字型家族，優先使用原生系統字型以達最佳渲染效能 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* 設定背景色彩為溫暖柔和的燕麥奶茶色 */
+  background-color: #fcf9f5; 
+  /* 設定全站預設文字主色為深咖啡色 */
+  color: #3e3228; 
+  /* 啟用彈性盒模型進行全頁對齊配置 */
+  display: flex;
+  /* 將內容水平置中顯示於視口中央 */
+  justify-content: center;
+  /* 設定垂直方向靠頂部對齊，避免螢幕放大時被置中拉扯變形 */
+  align-items: flex-start; 
+  /* 設定最小高度佔滿整個視口高度 (100vh) */
+  min-height: 100vh;
+  /* 設定頁面四周的內部邊距，頂部保留 60px 呼吸空間 */
+  padding: 60px 20px 40px; 
+}
+
+/* ==========================================
+   2. 頁面整體包覆容器與 Header LOGO 樣式
+   ========================================== */
+.page-wrapper {
+  /* 設定網頁內容最大寬度上限為 1200px */
+  max-width: 1200px;
+  /* 確保在小螢幕時寬度自動填滿 100% */
+  width: 100%;
+  /* 啟用垂直方向的彈性排版佈局 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 獨立外層的 LOGO 標頭區塊外距設定 */
+.header {
+  margin-bottom: 32px;
+  display: flex;
+  /* 讓 LOGO 靠左對齊卡片邊緣 */
+  justify-content: flex-start; 
+}
+
+/* 風格 3：復古鋼印 LOGO 本體設定 */
+.logo-atelier-3 {
+  display: flex;
+  align-items: center;
+  /* 設定圖標與文字之間的固定間距 */
+  gap: 18px;
+  /* 設定品牌標誌專屬的古典襯線字型 */
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #3e3228;
+}
+
+/* 鋼印圓形外框設計 */
+.atelier-seal {
+  width: 56px;
+  height: 56px;
+  /* 設定復古質感的外框虛線樣式與色彩 */
+  border: 2px dashed #8c6239;
+  /* 將外框修飾為完美圓形 */
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* 設定圓形內部的底色為淺米色 */
+  background-color: #f7f3ee;
+}
+
+.seal-letter {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #8c6239;
+  line-height: 1;
+}
+
+.seal-year {
+  font-size: 0.5rem;
+  font-family: sans-serif;
+  /* 增加字元之間的間距以提升精緻感 */
+  letter-spacing: 0.1em;
+  color: #726255;
+  margin-top: 2px;
+}
+
+/* 品牌名稱文字群組排列 */
+.atelier-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.atelier-name {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.atelier-desc {
+  font-size: 0.75rem;
+  /* 設定副標題為優雅的斜體字 */
+  font-style: italic;
+  color: #726255;
+  margin-top: 2px;
+}
+
+/* ==========================================
+   3. 卡片外層容器與響應式排版 (Flexbox)
+   ========================================== */
+.card-container {
+  display: flex;
+  /* 支援螢幕縮小時自動換行 (三欄 -> 兩欄 -> 單欄) */
+  flex-wrap: wrap; 
+  /* 設定卡片與卡片之間的固定間距 */
+  gap: 24px; 
+  /* 在空間不足時自動置中顯示所有卡片 */
+  justify-content: center; 
+  /* 強制所有卡片的高度自動拉齊一致 */
+  align-items: stretch; 
+  width: 100%;
+  /* 設定下方與聯絡表單保持舒適的間距 */
+  margin-bottom: 60px; 
+}
+
+/* ==========================================
+   4. 單張卡片主體與互動動畫設定
+   ========================================== */
+.card {
+  background-color: #ffffff;
+  /* 設定卡片圓角弧度 */
+  border-radius: 12px; 
+  /* 設定精緻且帶有溫暖色調的陰影效果 */
+  box-shadow: 0 8px 24px rgba(62, 50, 40, 0.08); 
+  /* 隱藏超出圓角範圍的內容（確保內部圖片不會溢出） */
+  overflow: hidden; 
+  
+  /* 彈性佈局計算：基準寬度 300px，支援彈性放大與自動縮小 */
+  flex: 1 1 300px;
+  /* 在大螢幕時限制最大寬度，維持漂亮的 3 欄式佈局 */
+  max-width: 380px; 
+
+  /* 內部使用垂直彈性排版，確保按鈕永遠完美貼齊底部 */
+  display: flex;
+  flex-direction: column;
+  /* 設定過渡動畫的時間與平滑曲線 */
+  transition: all 0.3s ease; 
+}
+
+/* 滑鼠懸停卡片時的互動特效：向上浮動與陰影加深 */
+.card:hover {
+  /* 讓卡片向上浮動 12px 創造立體感 */
+  transform: translateY(-12px); 
+  /* 懸停時加深陰影，提升視覺層次感 */
+  box-shadow: 0 16px 32px rgba(62, 50, 40, 0.3); 
+}
+
+/* 卡片圖片外層容器與圖片縮放過渡設定 */
+.card-image-wrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  /* 保持圖片原始比例自動裁剪並填滿容器 */
+  object-fit: cover; 
+  display: block;
+  /* 設定圖片微幅放大的過渡時間 */
+  transition: transform 0.5s ease; 
+}
+
+/* 滑鼠懸停卡片時讓內部圖片產生微放大效果 */
+.card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   5. 卡片內部文字區域與按鈕樣式
+   ========================================== */
+.card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  /* 讓內容區自動佔滿剩餘的垂直空間 */
+  flex-grow: 1; 
+}
+
+/* 卡片標題 <h3> 樣式 */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  /* 設定為深焦糖色 */
+  color: #2c221e; 
+  margin-bottom: 12px;
+}
+
+/* 卡片段落文字 <p> 樣式 */
+.card-description {
+  font-size: 0.95rem;
+  /* 設定舒適易讀的行高 */
+  line-height: 1.6;
+  /* 設定淺咖灰內文色彩 */
+  color: #726255; 
+  margin-bottom: 20px;
+  /* 自動推開下方按鈕，保持底部對齊 */
+  flex-grow: 1; 
+}
+
+/* 卡片精美按鈕樣式 */
+.card-button {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  /* 設定暖棕咖啡色按鈕背景 */
+  background-color: #8c6239; 
+  color: #ffffff; 
+  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1.06rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* 按鈕滑鼠懸停時的色彩回饋 */
+.card-button:hover {
+  background-color: #724f2e; 
+}
+
+/* 按鈕點擊時的微縮回饋效果 */
+.card-button:active {
+  transform: scale(0.95); 
+}
+
+/* ==========================================
+   6. 「聯絡我們」表單樣式設計 (含 Focus 狀態)
+   ========================================== */
+.contact-section {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(62, 50, 40, 0.06);
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #3e3228;
+  margin-bottom: 8px;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: #726255;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+  /* 將表單置中對齊 */
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #3e3228;
+}
+
+/* 輸入框、下拉選單與文字區域的通用基本樣式設定 */
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d4c5b9;
+  border-radius: 8px;
+  background-color: #fcf9f5;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #3e3228;
+  /* 設定邊框與陰影變化的平滑過渡動畫 */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* 下拉選單專屬樣式調整：確保游標為指標且外觀一致 */
+.form-select {
+  cursor: pointer;
+  appearance: none; /* 移除瀏覽器預設樣式以便自定義 */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23726255' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* ==========================================
+   需求 4：滑鼠點擊輸入框會出現外框突顯效果 (Focus State)
+   ========================================== */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  /* 移除瀏覽器預設的藍色外框 */
+  outline: none; 
+  /* 將邊框顏色變更为品牌主色（咖啡棕） */
+  border-color: #8c6239; 
+  /* 加上柔和溫暖的半透明光暈外框突顯效果 */
+  box-shadow: 0 0 0 3px rgba(140, 98, 57, 0.18); 
+  /* 點擊聚焦時將背景改為純白色，提升舒適度 */
+  background-color: #ffffff; 
+}
+
+/* 限制多行文字區域僅允許垂直調整大小 */
+.form-textarea {
+  resize: vertical; 
+}
+
+/* 表單送出按鈕樣式 */
+.submit-button {
+  background-color: #8c6239;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background-color: #724f2e;
+}
+
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   7. 頁尾 (Footer) 樣式設計 (含手機版自動垂直置中)
+   ========================================== */
+.site-footer {
+  /* 設定頁尾深色背景（深咖啡色） */
+  background-color: #3e3228;
+  /* 設定頁尾文字色彩為淺米色 */
+  color: #fcf9f5;
+  padding: 40px 30px 24px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.footer-content {
+  display: flex;
+  /* 預設桌機版：左右兩側分散對齊 */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* 底部加上分隔線 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 24px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-logo-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: "Georgia", "Times New Roman", serif;
+  letter-spacing: 0.05em;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  color: #d4c5b9;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  /* 設定導覽連結之間的間距 */
+  gap: 20px;
+}
+
+.footer-link {
+  color: #d4c5b9;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+/* 外部連結專屬微調（例如 GitHub / LinkedIn） */
+.external-link {
+  /* 加上微微的底線提示這是一個外部跳轉連結 */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(212, 197, 185, 0.4);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #a89584;
+}
+
+/* ==========================================
+   需求 3：手機版 RWD 響應式調整 (Footer 改為上下垂直置中)
+   ========================================== */
+@media (max-width: 768px) {
+  .footer-content {
+    /* 當螢幕寬度小於 768px（手機版）時，將排版方向改為垂直上下排列 */
+    flex-direction: column;
+    /* 將所有子元素改為置中對齊 */
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-brand {
+    /* 手機版品牌文字區塊置中 */
+    align-items: center;
+  }
+  
+  .footer-nav {
+    /* 手機版導覽連結改為置中排列並縮小間距 */
+    justify-content: center;
+    gap: 14px;
+  }
+  
+  .contact-section {
+    padding: 24px;
+  }
+}

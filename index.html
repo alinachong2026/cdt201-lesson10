@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <!-- 設定網頁字元編碼為 UTF-8，支援繁體中文顯示 -->
+  <meta charset="UTF-8">
+  <!-- 設定行動裝置響應式視口，確保在手機上正常縮放 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 設定瀏覽器標籤頁顯示的標題 -->
+  <title>Atelier Cafe-by Alina</title>
+  <!-- 引入獨立的外部 CSS 樣式表檔案 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 全域頁面包覆容器：用於限制最大寬度、統整網頁版面結構 -->
+  <div class="page-wrapper">
+
+    <!-- 獨立於卡片容器外層的頁首 LOGO 標頭區塊 (Atelier Café) -->
+    <header class="header">
+      <!-- LOGO 區塊容器：採用左右排列與固定間距 -->
+      <div class="logo-atelier-3">
+        <!-- 復古鋼印圓形標誌圖騰外框 -->
+        <div class="atelier-seal">
+          <!-- 鋼印中央的大寫字母 A -->
+          <span class="seal-letter">A</span>
+          <!-- 鋼印下方的創立年份標示 -->
+          <span class="seal-year">EST.2026</span>
+        </div>
+        <!-- 品牌名稱與副標題的文字群組容器 -->
+        <div class="atelier-details">
+          <!-- 品牌主標題文字 -->
+          <span class="atelier-name">Atelier Café</span>
+          <!-- 品牌副標題與定位說明文字 -->
+          <span class="atelier-desc">Artisan Coffee & Pastry</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 三欄式特色卡片外層容器：使用 Flexbox 彈性排版並支援自動換行 -->
+    <section class="card-container">
+
+      <!-- 第一張卡片：手沖精品咖啡 -->
+      <article class="card">
+        <!-- 圖片外層包覆容器：控制圖片尺寸與隱藏溢出範圍 -->
+        <div class="card-image-wrapper">
+          <!-- 卡片主打商品圖片 -->
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80" alt="手沖咖啡" class="card-image">
+        </div>
+        <!-- 卡片文字內容與按鈕包覆區塊 -->
+        <div class="card-content">
+          <!-- 卡片標題文字 -->
+          <h3 class="card-title">嚴選單品手沖</h3>
+          <!-- 卡片詳細說明段落文字 -->
+          <p class="card-description">由專業咖啡師精選全球優質產區莊園豆，以精準的水溫與手法注入，展現明亮的花果香氣與細緻層次。</p>
+          <!-- 卡片互動連結按鈕 -->
+          <a href="#" class="card-button">探索豆單</a>
+        </div>
+      </article>
+
+      <!-- 第二張卡片：手作烘焙甜點 -->
+      <article class="card">
+        <!-- 圖片外層包覆容器 -->
+        <div class="card-image-wrapper">
+          <!-- 卡片主打甜點圖片 -->
+          <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="精緻甜點" class="card-image">
+        </div>
+        <!-- 卡片文字內容與按鈕包覆區塊 -->
+        <div class="card-content">
+          <!-- 卡片標題文字 -->
+          <h3 class="card-title">職人每日手作甜點</h3>
+          <!-- 卡片詳細說明段落文字 -->
+          <p class="card-description">堅持使用天然奶油與新鮮時令水果，每日限量現做，讓你享受純粹的甜美滋味。</p>
+          <!-- 卡片互動連結按鈕 -->
+          <a href="#" class="card-button">查看今日甜點</a>
+        </div>
+      </article>
+
+      <!-- 第三張卡片：靜謐舒心空間 -->
+      <article class="card">
+        <!-- 圖片外層包覆容器 -->
+        <div class="card-image-wrapper">
+          <!-- 卡片環境照片 -->
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=600&q=80" alt="咖啡廳室內環境" class="card-image">
+        </div>
+        <!-- 卡片文字內容與按鈕包覆區塊 -->
+        <div class="card-content">
+          <!-- 卡片標題文字 -->
+          <h3 class="card-title">木質溫暖日光空間</h3>
+          <!-- 卡片詳細說明段落文字 -->
+          <p class="card-description">結合溫潤木質氛圍與柔和自然採光，配備舒適座位與獨立插座，為你打造適合工作與放鬆的愜意角落。</p>
+          <!-- 卡片互動連結按鈕 -->
+          <a href="#" class="card-button">線上預約席位</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ==========================================
+         6. 「聯絡我們」表單區塊 (整合 Netlify 與下拉選單)
+         ========================================== -->
+    <section class="contact-section">
+      <!-- 表單標題與副標題群組容器 -->
+      <div class="contact-header">
+        <!-- 表單大標題 -->
+        <h2 class="section-title">聯絡我們</h2>
+        <!-- 表單副標題說明 -->
+        <p class="section-subtitle">有任何合作提案或想對我們說的話嗎？歡迎隨時與我們聯繫。</p>
+      </div>
+
+      <!-- 聯絡表單本體：設定 name 與 netlify 屬性以支援 Netlify 後端表單接收 -->
+      <form class="contact-form" name="contact" method="POST" netlify>
+        
+        <!-- 表單欄位 1：您的姓名 (Name) -->
+        <div class="form-group">
+          <!-- 欄位標籤：對應 input 的 id -->
+          <label for="name" class="form-label">您的姓名 (Name)</label>
+          <!-- 單行文字輸入框：必填欄位 -->
+          <input type="text" id="name" name="name" class="form-input" placeholder="請輸入您的姓名" required>
+        </div>
+
+        <!-- 表單欄位 2：電子郵件 (Email) -->
+        <div class="form-group">
+          <!-- 欄位標籤：對應 email 的 id -->
+          <label for="email" class="form-label">電子郵件 (Email)</label>
+          <!-- 電子郵件輸入框：自動檢驗格式與必填 -->
+          <input type="email" id="email" name="email" class="form-input" placeholder="name@example.com" required>
+        </div>
+
+        <!-- 表單欄位 3：諮詢主題下拉選單 (<select>) -->
+        <div class="form-group">
+          <!-- 欄位標籤：對應 select 的 id -->
+          <label for="subject" class="form-label">諮詢主題 (Subject)</label>
+          <!-- 下拉選單元件：供訪客選擇不同諮詢類別 -->
+          <select id="subject" name="subject" class="form-input form-select" required>
+            <!-- 預設提示選項（disabled 禁止選取，selected 作為初始顯示） -->
+            <option value="" disabled selected>請選擇您的諮詢主題</option>
+            <!-- 下拉選項 1：專案合作 -->
+            <option value="project">專案合作</option>
+            <!-- 下拉選項 2：技術交流 -->
+            <option value="tech">技術交流</option>
+            <!-- 下拉選項 3：預約訂位查詢 -->
+            <option value="reservation">預約訂位查詢</option>
+            <!-- 下拉選項 4：其他事項 -->
+            <option value="other">其他事項</option>
+          </select>
+        </div>
+
+        <!-- 表單欄位 4：想對我說的話 (Message) -->
+        <div class="form-group">
+          <!-- 欄位標籤：對應 textarea 的 id -->
+          <label for="message" class="form-label">想對我說的話 (Message)</label>
+          <!-- 多行文字訊息輸入框：設定 5 行高度與必填 -->
+          <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="請輸入您想留言的內容..." required></textarea>
+        </div>
+
+        <!-- 表單送出按鈕：點擊後觸發表單提交 -->
+        <button type="submit" class="submit-button">送出表單</button>
+      </form>
+    </section>
+
+    <!-- ==========================================
+         7. 頁尾區塊 (Footer 包含版權、內部與外部導覽連結)
+         ========================================== -->
+    <footer class="site-footer">
+      <!-- 頁尾主要內容上下左右配置區塊 -->
+      <div class="footer-content">
+        <!-- 品牌簡介短語區塊 -->
+        <div class="footer-brand">
+          <!-- 頁尾品牌名稱 -->
+          <span class="footer-logo-text">Atelier Café</span>
+          <!-- 頁尾品牌標語 -->
+          <p class="footer-tagline">為您煮一杯充滿溫度的手沖時光。</p>
+        </div>
+
+        <!-- 導覽連結與外部社交連結群組 -->
+        <nav class="footer-nav">
+          <!-- 內部導覽連結：首頁 -->
+          <a href="#" class="footer-link">首頁</a>
+          <!-- 內部導覽連結：精選豆單 -->
+          <a href="#" class="footer-link">精選豆單</a>
+          <!-- 內部導覽連結：手作甜點 -->
+          <a href="#" class="footer-link">手作甜點</a>
+          <!-- 內部導覽連結：空間預約 -->
+          <a href="#" class="footer-link">空間預約</a>
+          <!-- 內部導覽連結：聯絡我們 -->
+          <a href="#" class="footer-link">聯絡我們</a>
+          <!-- 外部連結 1：個人 GitHub 專業技術作品集 -->
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link external-link">GitHub ↗</a>
+          <!-- 外部連結 2：個人 LinkedIn 職場社交檔案 -->
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link external-link">LinkedIn ↗</a>
+        </nav>
+      </div>
+
+      <!-- 頁尾最下方的版權宣告區塊 -->
+      <div class="footer-bottom">
+        <!-- 版權宣告文字與年份 -->
+        <p>© 2026 Atelier Café by Alina. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
